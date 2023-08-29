@@ -16,16 +16,20 @@ form.addEventListener("submit", (e) => {
    } else{
     const bmi = (weight / ((height * height)/10000)).toFixed(2);
 
-    if (bmi <= 18.6){
+    if (bmi < 18.6){
     expl.innerHTML = '<span>You are under weight</span>';
     expl.style.color ="red";
     result.style.color = "red";
-    } else if (bmi >= 18.6 || bmi < 24.9){
+    } else if (bmi >= 18.6 && bmi <= 24.9){
         expl.innerHTML = "<span>Your weight is Normal</span>";
         expl.style.color ="aquamarine";
         result.style.color = "aquamarine";
-    }else{
+    }else if (bmi > 24.9){
         expl.innerHTML = "<span>Your are over weight</span>";
+        expl.style.color ="red";
+        result.style.color = "red";
+    }else {
+        expl.innerHTML = "<span>Something Error</span>";
         expl.style.color ="red";
         result.style.color = "red";
     }
